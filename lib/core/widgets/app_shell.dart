@@ -20,6 +20,7 @@ class AppShell extends StatelessWidget {
       '/app/dashboard' => 0,
       '/app/profile' => 1,
       '/app/notifications' => 2,
+      '/app/sessions' => 3,
       _ => 0,
     };
 
@@ -107,6 +108,8 @@ class AppShell extends StatelessWidget {
                                 return 'Профиль';
                               case 2:
                                 return 'Уведомления';
+                              case 3:
+                                return 'Сеансы';
                               default:
                                 return '';
                             }
@@ -177,6 +180,13 @@ class AppShell extends StatelessWidget {
                         title: 'Дашборд',
                         selected: selectedIndex == 0,
                         onTap: () => context.go('/app/dashboard'),
+                      ),
+                      _NavButton(
+                        icon: Icons.schedule_outlined,
+                        selectedIcon: Icons.schedule_outlined,
+                        title: 'Сеансы',
+                        selected: selectedIndex == 3,
+                        onTap: () => context.go('/app/sessions'),
                       ),
                       const SizedBox(height: 24),
                       const Divider(height: 1, thickness: 1),

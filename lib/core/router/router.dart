@@ -5,6 +5,7 @@ import '../../features/auth/auth.dart';
 import '../../features/dashboard/dashboard.dart';
 import '../../features/notifications/notifications.dart';
 import '../../features/profile/profile.dart';
+import '../../features/sessions/sessions.dart';
 import '../core.dart';
 
 class AuthRouterRefreshNotifier extends ChangeNotifier {
@@ -68,6 +69,14 @@ GoRouter createAppRouter(AuthBloc authBloc) {
             pageBuilder: (context, state) {
               return const NoTransitionPage(
                 child: DashboardPage(),
+              );
+            },
+          ),
+          GoRoute(
+            path: '/app/sessions',
+            pageBuilder: (context, state) {
+              return const NoTransitionPage(
+                child: SessionsPage(),
               );
             },
           ),

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vr_club_app/core/core.dart';
 import 'package:vr_club_app/features/auth/auth.dart';
 import 'package:vr_club_app/features/dashboard/dashboard.dart';
+import 'package:vr_club_app/features/sessions/sessions.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,9 @@ class VrClubApp extends StatelessWidget {
         ),
         BlocProvider<DashboardBloc>(
           create: (_) => sl<DashboardBloc>(),
+        ),
+         BlocProvider<SessionsBloc>(
+          create: (_) => sl<SessionsBloc>(),
         ),
       ],
       child: MaterialApp.router(

@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../features/auth/auth.dart';
 import '../../features/dashboard/dashboard.dart';
+import '../../features/sessions/sessions.dart';
 
 final sl = GetIt.instance;
 
@@ -16,5 +17,12 @@ Future<void> setupDependencies() async {
       () => DashboardRepositoryImpl(DashboardFixtureDataSource()));
   sl.registerLazySingleton<DashboardUseCase>(
       () => DashboardUseCase(sl<DashboardRepository>()));
-  sl.registerFactory<DashboardBloc>(() => DashboardBloc(sl<DashboardUseCase>()));
+  sl.registerFactory<DashboardBloc>(
+      () => DashboardBloc(sl<DashboardUseCase>()));
+
+  sl.registerLazySingleton<SessionsRepository>(
+      () => SessionsRepositoryImpl(SessionsFixtureDataSource()));
+  sl.registerLazySingleton<SessionsUseCase>(
+      () => SessionsUseCase(sl<SessionsRepository>()));
+  sl.registerFactory<SessionsBloc>(() => SessionsBloc(sl<SessionsUseCase>()));
 }

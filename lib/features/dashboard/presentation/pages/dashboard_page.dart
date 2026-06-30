@@ -40,93 +40,97 @@ class DashboardPage extends StatelessWidget {
                   color: Color.fromARGB(255, 27, 33, 60),
                 ),
                 child: Center(child: Text('Возникла ошибка'))),
-            GotDashboardState() => Container(
+            GotDashboardState() => Expanded(
+              child: Container(
                 decoration: BoxDecoration(
                   color: Color.fromARGB(255, 27, 33, 60),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Состояние VR-оборудования в реальном времени',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Color(0xFF989898),
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-                      Row(
-                        children: [
-                          Container(
-                            width: 76,
-                            height: 76,
-                            decoration: const BoxDecoration(
-                              color: Color(0xFF17652E),
-                              shape: BoxShape.circle,
-                            ),
-                            alignment: Alignment.center,
-                            child: Text(
-                              '${user.lastName[0]}${user.firstName[0]}',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                              ),
-                            ),
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Состояние VR-оборудования в реальном времени',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFF989898),
+                            fontWeight: FontWeight.w400,
                           ),
-                          SizedBox(width: 16),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                '${user.lastName} ${user.firstName} ${user.patronymic}',
+                        ),
+                        const SizedBox(height: 24),
+                        Row(
+                          children: [
+                            Container(
+                              width: 76,
+                              height: 76,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFF17652E),
+                                shape: BoxShape.circle,
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${user.lastName[0]}${user.firstName[0]}',
                                 style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
                                 ),
                               ),
-                              SizedBox(height: 6),
-                              Row(
-                                children: [
-                                  Container(
-                                    width: 4,
-                                    height: 4,
-                                    decoration: const BoxDecoration(
-                                      color: Color(0xFFD9D9D9),
-                                      shape: BoxShape.circle,
-                                    ),
+                            ),
+                            SizedBox(width: 16),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '${user.lastName} ${user.firstName} ${user.patronymic}',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  SizedBox(width: 4),
-                                  Text(
-                                    user.roleTranslatedRU,
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xFF989898),
+                                ),
+                                SizedBox(height: 6),
+                                Row(
+                                  children: [
+                                    Container(
+                                      width: 4,
+                                      height: 4,
+                                      decoration: const BoxDecoration(
+                                        color: Color(0xFFD9D9D9),
+                                        shape: BoxShape.circle,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 24),
-                      Wrap(
-                        spacing: 40,
-                        runSpacing: 24,
-                        children: [
-                          for (final room in state.rooms)
-                            _RoomBoardWidget(room: room),
-                        ],
-                      ),
-                    ],
+                                    SizedBox(width: 4),
+                                    Text(
+                                      user.roleTranslatedRU,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color(0xFF989898),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 24),
+                        Wrap(
+                          spacing: 40,
+                          runSpacing: 24,
+                          children: [
+                            for (final room in state.rooms)
+                              _RoomBoardWidget(room: room),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
+            ),
           };
         });
       },

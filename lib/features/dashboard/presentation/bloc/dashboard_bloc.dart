@@ -10,7 +10,6 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   final DashboardUseCase dashboardUseCase;
 
   DashboardBloc(this.dashboardUseCase) : super(DashboardInitialState()) {
-    print(this.state);
     on<GetDashboardEvent>(_onGetDashboardEvent);
   }
 

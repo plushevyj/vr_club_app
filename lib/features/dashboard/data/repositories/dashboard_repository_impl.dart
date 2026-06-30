@@ -1,6 +1,5 @@
 import '../../domain/domain.dart';
 import '../datasources/dashboard_fixture_data_source.dart';
-import '../models/vr_room_dto.dart';
 
 class DashboardRepositoryImpl implements DashboardRepository {
   final DashboardFixtureDataSource dataSource;
