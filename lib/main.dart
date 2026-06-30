@@ -21,8 +21,8 @@ class VrClubApp extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider<AuthBloc>.value(
-          value: authBloc,
+        BlocProvider<AuthBloc>(
+          create: (_) => authBloc,
         ),
         BlocProvider<DashboardBloc>(
           create: (_) => sl<DashboardBloc>(),
